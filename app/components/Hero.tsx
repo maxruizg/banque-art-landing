@@ -1,21 +1,18 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 export function Hero() {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal-900"
     >
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop"
-          alt="Elegant corporate dining setup"
-          className={`w-full h-full object-cover transition-opacity duration-1000 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-          onLoad={() => setImageLoaded(true)}
+        <div
+          className="w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop')"
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal-900/90 via-charcoal-900/70 to-charcoal-900/50" />
       </div>
