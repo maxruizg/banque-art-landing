@@ -1,0 +1,10 @@
+export { Navigation } from "./Navigation";
+export { Hero } from "./Hero";
+export { About } from "./About";
+export { CorporateManifesto } from "./CorporateManifesto";
+export { CateringCorporativo } from "./CateringCorporativo";
+export { CateringSocial } from "./CateringSocial";
+export { Modal } from "./Modal";
+export { Showroom } from "./Showroom";
+export { Contact } from "./Contact";
+export { Footer } from "./Footer";
