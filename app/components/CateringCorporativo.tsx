@@ -141,7 +141,7 @@ export function CateringCorporativo() {
   const [selectedProduct, setSelectedProduct] = useState<Producto | null>(null);
 
   return (
-    <section id="corporativo" className="py-24 lg:py-32 bg-cream-50" ref={ref}>
+    <section className="py-24 lg:py-32 bg-cream-50" ref={ref}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

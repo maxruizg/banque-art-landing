@@ -4,6 +4,7 @@ export { About } from "./About";
 export { CorporateManifesto } from "./CorporateManifesto";
 export { CateringCorporativo } from "./CateringCorporativo";
 export { CateringSocial } from "./CateringSocial";
+export { ServicesTeaser } from "./ServicesTeaser";
 export { Modal } from "./Modal";
 export { Showroom } from "./Showroom";
 export { Contact } from "./Contact";

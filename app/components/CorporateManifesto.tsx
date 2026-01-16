@@ -127,7 +127,7 @@ export function CorporateManifesto() {
             className="text-center mt-12"
           >
             <a
-              href="#corporativo"
+              href="/corporativo"
               className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors text-sm uppercase tracking-wider"
             >
               Descubre nuestros servicios corporativos

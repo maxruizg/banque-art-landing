@@ -2,17 +2,23 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "Inicio", href: "#inicio" },
-  { name: "Filosofía", href: "#filosofia" },
-  { name: "Corporativo", href: "#corporativo" },
-  { name: "Social", href: "#social" },
-  { name: "Nosotros", href: "#nosotros" },
-  { name: "Galería", href: "#galeria" },
+  { name: "Inicio", href: "/" },
+  { name: "Filosofía", href: "/#filosofia" },
+  { name: "Corporativo", href: "/corporativo" },
+  { name: "Social", href: "/social" },
+  { name: "Nosotros", href: "/#nosotros" },
+  { name: "Galería", href: "/#galeria" },
 ];
 
-export function Navigation() {
+interface NavigationProps {
+  variant?: "light" | "dark";
+}
+
+export function Navigation({ variant = "light" }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const isDark = variant === "dark" && !isScrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,8 +43,10 @@ export function Navigation() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.a
-            href="#inicio"
-            className="font-serif text-2xl font-semibold text-charcoal-800 tracking-wide"
+            href="/"
+            className={`font-serif text-2xl font-semibold tracking-wide transition-colors ${
+              isDark ? "text-cream-50" : "text-charcoal-800"
+            }`}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -51,7 +59,9 @@ export function Navigation() {
               <motion.a
                 key={link.name}
                 href={link.href}
-                className="text-charcoal-700 hover:text-gold-600 transition-colors text-sm tracking-wide uppercase"
+                className={`hover:text-gold-500 transition-colors text-sm tracking-wide uppercase ${
+                  isDark ? "text-cream-200" : "text-charcoal-700"
+                }`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -61,12 +71,16 @@ export function Navigation() {
               </motion.a>
             ))}
             <motion.a
-              href="#contacto"
-              className="bg-tan-600 text-cream-50 px-6 py-2.5 rounded-full text-sm tracking-wide uppercase hover:bg-tan-700 transition-colors"
+              href="/#contacto"
+              className={`px-6 py-2.5 rounded-full text-sm tracking-wide uppercase transition-colors ${
+                isDark
+                  ? "bg-gold-500 text-charcoal-900 hover:bg-gold-400"
+                  : "bg-tan-600 text-cream-50 hover:bg-tan-700"
+              }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Reservar
+              Cotizar
             </motion.a>
           </div>
 
@@ -82,18 +96,18 @@ export function Navigation() {
                   rotate: isMobileMenuOpen ? 45 : 0,
                   y: isMobileMenuOpen ? 8 : 0,
                 }}
-                className="w-full h-0.5 bg-charcoal-800 block origin-left"
+                className={`w-full h-0.5 block origin-left ${isDark ? "bg-cream-50" : "bg-charcoal-800"}`}
               />
               <motion.span
                 animate={{ opacity: isMobileMenuOpen ? 0 : 1 }}
-                className="w-full h-0.5 bg-charcoal-800 block"
+                className={`w-full h-0.5 block ${isDark ? "bg-cream-50" : "bg-charcoal-800"}`}
               />
               <motion.span
                 animate={{
                   rotate: isMobileMenuOpen ? -45 : 0,
                   y: isMobileMenuOpen ? -8 : 0,
                 }}
-                className="w-full h-0.5 bg-charcoal-800 block origin-left"
+                className={`w-full h-0.5 block origin-left ${isDark ? "bg-cream-50" : "bg-charcoal-800"}`}
               />
             </div>
           </button>
@@ -131,7 +145,7 @@ export function Navigation() {
                 transition={{ delay: 0.25 }}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Reservar
+                Cotizar
               </motion.a>
             </div>
           </motion.div>

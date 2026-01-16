@@ -270,6 +270,38 @@ const productos: Producto[] = [
         ],
       },
       {
+        nombre: "Desayuno AAA",
+        descripcion:
+          "Incluye desayuno buffet AAA con técnicas de alta gastronomía, estaciones frías y calientes, ingredientes premium, bebidas de especialidad, chef y personal especializado, renta de equipo y loza fina, logística y montaje.",
+        minPax: 50,
+        menu: [
+          {
+            nombre: "Estación de Frutas Premium",
+            items: ["Carpaccio de piña con miel de lavanda y hojas de menta", "Brochetas de frutas exóticas con dip de yogur griego y miel de agave", "Ensalada de frutas tropicales con coco rallado y semillas de chía", "Parfait de yogur con granola artesanal y frutos del bosque", "Copa de mango con crema de maracuyá"],
+          },
+          {
+            nombre: "Estación Caliente de Alta Cocina",
+            items: ["Huevos benedictinos con salmón ahumado y salsa holandesa", "Omelette de champiñones silvestres y queso gruyère", "Chilaquiles verdes con pechuga al grill y crema de aguacate", "Hotcakes de buttermilk con frutos rojos y miel de maple", "Waffles belgas con Nutella y fresas", "Tostada de aguacate con huevo pochado y microgreens"],
+          },
+          {
+            nombre: "Charcutería y Quesos",
+            items: ["Selección de quesos europeos (brie, manchego, gouda)", "Jamón serrano y prosciutto", "Salmón ahumado con alcaparras y cebolla morada", "Pan artesanal variado", "Mermeladas artesanales"],
+          },
+          {
+            nombre: "Panadería Artesanal",
+            items: ["Croissants de mantequilla", "Pain au chocolat", "Danish de frutas", "Mini conchas artesanales", "Muffins gourmet variados"],
+          },
+          {
+            nombre: "Postres de Autor",
+            items: ["Mini tartaleta de frutas con crema pastelera", "Mousse de chocolate belga", "Panacota de vainilla con coulis de frutos rojos", "Macarons franceses", "Crème brûlée individual"],
+          },
+          {
+            nombre: "Bebidas Premium",
+            items: ["Café espresso artesanal", "Cappuccino y latte con arte", "Chocolate caliente belga", "Jugo de naranja recién exprimido", "Jugo verde detox", "Mimosa con espumoso brut", "Selección de tés premium"],
+          },
+        ],
+      },
+      {
         nombre: "Comida A",
         descripcion:
           "Incluye comida buffet con entradas, platos fuertes, complemento, postres y bebidas, personal de cocina y servicio, renta de equipo y loza, logística y montaje.",
@@ -352,7 +384,7 @@ const productos: Producto[] = [
       {
         nombre: "Cena A",
         descripcion:
-          "Incluye cena buffet con 2 frutas, 2 platos calientes, 1 complemento, 2 postres y 3 bebidas, personal de cocina y servicio, renta de equipo y loza, logística y montaje.",
+          "Incluye cena buffet con entradas, platos fuertes, complemento, postres y bebidas, personal de cocina y servicio, renta de equipo y loza, logística y montaje.",
         minPax: 50,
         menu: [
           {
@@ -370,6 +402,62 @@ const productos: Producto[] = [
           {
             nombre: "Bebidas",
             items: ["Agua de jamaica con toque de limón", "Agua de tamarindo con chile en el borde", "Limonada natural o mineral", "Agua de piña con menta", "Agua de guayaba natural", "Café americano o de olla", "Té caliente (manzanilla, menta o negro)"],
+          },
+        ],
+      },
+      {
+        nombre: "Cena AA",
+        descripcion:
+          "Incluye cena buffet AA con entradas, platos fuertes, complementos, postres y bebidas, personal de cocina y servicio, renta de equipo y loza, logística y montaje.",
+        minPax: 50,
+        menu: [
+          {
+            nombre: "Entradas",
+            items: ["Crema de elote con juliana de chile poblano y crotones", "Crema de papa con cebollín y tocino crujiente", "Ensalada de espinaca con pera, nuez y vinagreta de mostaza", "Ensalada caprese con pesto de albahaca", "Crema de jitomate rostizado con aceite de albahaca", "Ensalada de betabel con queso panela y naranja"],
+          },
+          {
+            nombre: "Platos Fuertes",
+            items: ["Pechuga de pollo rellena de jamón serrano y queso manchego", "Filete de pescado en salsa de limón y alcaparras", "Lomo de cerdo en salsa de ciruela con papas cambray", "Medallón de res con salsa de champiñones", "Costilla de cerdo en salsa BBQ con puré rústico", "Pechuga al vino blanco con papas gratinadas"],
+          },
+          {
+            nombre: "Complementos",
+            items: ["Papas cambray al romero", "Arroz con hierbas finas", "Verduras salteadas con mantequilla y ajo", "Puré de papa cremoso", "Pasta corta a la mantequilla con parmesano"],
+          },
+          {
+            nombre: "Postres",
+            items: ["Flan napolitano con caramelo y ralladura de naranja", "Cheesecake de frutos rojos", "Brownie de chocolate con salsa de vainilla", "Pay de manzana con canela y crema dulce", "Gelatina mosaico con base de leche condensada", "Crepa de plátano con caramelo y nuez"],
+          },
+          {
+            nombre: "Bebidas",
+            items: ["Agua de pepino con limón y menta", "Agua de jamaica con canela y clavo", "Limonada con jengibre y miel", "Agua de melón con albahaca", "Jugo de arándano con limón", "Café americano o cappuccino", "Té caliente (variedad)"],
+          },
+        ],
+      },
+      {
+        nombre: "Cena AAA",
+        descripcion:
+          "Incluye cena buffet AAA con alta gastronomía, técnicas moleculares, estaciones asistidas, bebidas con vino y digestivo, chef y personal especializado, renta de loza fina, logística y montaje.",
+        minPax: 50,
+        menu: [
+          {
+            nombre: "Entradas",
+            items: ["Sopa de cebolla caramelizada gratinada con queso gruyère", "Crema de poro y papa con chips de tocino y cebollín", "Tartar de atún con aguacate y ajonjolí tostado", "Ensalada de pera con nuez caramelizada, queso azul y vinagreta balsámica", "Carpaccio de res con rúcula, parmesano y reducción balsámica", "Rollitos de salmón ahumado con queso crema y eneldo"],
+          },
+          {
+            nombre: "Platos Fuertes",
+            items: ["Medallón de res en salsa de vino tinto con papas al romero y vegetales glaseados", "Salmón al limón con espinacas salteadas y puré de camote", "Lomo de cerdo en salsa de frutos rojos con couscous de hierbas", "Rack de cordero con costra de hierbas y reducción de oporto", "Risotto de hongos silvestres con aceite de trufa", "Filete de robalo en salsa de mariscos con arroz jazmín"],
+          },
+          {
+            nombre: "Estación de Quesos y Carnes",
+            items: ["Tabla de quesos europeos (brie, manchego, gouda, roquefort)", "Jamón serrano y prosciutto", "Frutas secas y nueces", "Mermeladas artesanales", "Pan artesanal y crutones"],
+          },
+          {
+            nombre: "Postres",
+            items: ["Panacota de vainilla con coulis de frutos rojos", "Tiramisú individual en copa", "Mousse de maracuyá con crumble de coco", "Volcán de chocolate con centro líquido", "Mini tartaletas de frutas con crema pastelera", "Esfera de chocolate con sorpresa de frutos del bosque"],
+          },
+          {
+            nombre: "Bebidas Premium",
+            items: ["Vino tinto Cabernet Sauvignon o Malbec", "Vino blanco Chardonnay o Sauvignon Blanc", "Sangría de vino tinto con frutas", "Agua de jamaica con lavanda", "Limonada con pepino y menta fresca", "Café espresso o americano artesanal", "Selección de digestivos (licor de café, amaretto)"],
           },
         ],
       },
@@ -849,23 +937,222 @@ function VarianteCard({
   );
 }
 
+// Grouped Buffet/Emplatado Component
+interface MealGroup {
+  nombre: string;
+  icon: React.ReactNode;
+  variantes: Variante[];
+}
+
+function GroupedMealCard({
+  groups,
+  expandedGroup,
+  expandedVariante,
+  onToggleGroup,
+  onToggleVariante,
+}: {
+  groups: MealGroup[];
+  expandedGroup: string | null;
+  expandedVariante: number | null;
+  onToggleGroup: (groupName: string) => void;
+  onToggleVariante: (index: number) => void;
+}) {
+  return (
+    <div className="space-y-3">
+      {groups.map((group) => (
+        <div key={group.nombre} className="bg-cream-100 rounded-xl border border-cream-200 overflow-hidden">
+          {/* Group Header */}
+          <button
+            onClick={() => onToggleGroup(group.nombre)}
+            className="w-full p-4 flex items-center justify-between text-left hover:bg-cream-200/50 transition-colors"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gold-500/20 rounded-lg flex items-center justify-center text-gold-600">
+                {group.icon}
+              </div>
+              <div>
+                <h4 className="font-serif text-lg font-medium text-charcoal-800">
+                  {group.nombre}
+                </h4>
+                <p className="text-charcoal-500 text-sm">
+                  {group.variantes.length} opciones disponibles
+                </p>
+              </div>
+            </div>
+            <motion.div
+              animate={{ rotate: expandedGroup === group.nombre ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+              className="w-8 h-8 bg-tan-200 rounded-full flex items-center justify-center text-tan-700"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </motion.div>
+          </button>
+
+          {/* Expanded Group - Show Variants */}
+          <AnimatePresence>
+            {expandedGroup === group.nombre && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="px-4 pb-4 pt-2 border-t border-cream-200 space-y-2">
+                  {group.variantes.map((variante, idx) => {
+                    const globalIndex = groups
+                      .slice(0, groups.indexOf(group))
+                      .reduce((acc, g) => acc + g.variantes.length, 0) + idx;
+                    const tierName = variante.nombre.split(" ").pop() || "";
+
+                    return (
+                      <div key={idx} className="bg-cream-50 rounded-lg border border-cream-200 overflow-hidden">
+                        <button
+                          onClick={() => onToggleVariante(globalIndex)}
+                          className="w-full p-3 flex items-center justify-between text-left hover:bg-tan-50 transition-colors"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className={`text-xs font-bold px-2 py-1 rounded ${
+                              tierName === "A" ? "bg-tan-200 text-tan-700" :
+                              tierName === "AA" ? "bg-gold-200 text-gold-700" :
+                              "bg-gold-500 text-cream-50"
+                            }`}>
+                              {tierName}
+                            </span>
+                            <div>
+                              <p className="text-charcoal-700 text-sm font-medium">{variante.nombre}</p>
+                              <p className="text-charcoal-500 text-xs">Mín. {variante.minPax} pax</p>
+                            </div>
+                          </div>
+                          <motion.div
+                            animate={{ rotate: expandedVariante === globalIndex ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="w-6 h-6 bg-tan-100 rounded-full flex items-center justify-center text-tan-600"
+                          >
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </motion.div>
+                        </button>
+
+                        {/* Expanded Variant - Show Menu */}
+                        <AnimatePresence>
+                          {expandedVariante === globalIndex && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="overflow-hidden"
+                            >
+                              <div className="px-3 pb-3 pt-2 border-t border-cream-200">
+                                <p className="text-charcoal-500 text-xs mb-3">{variante.descripcion}</p>
+                                <div className="grid gap-3">
+                                  {variante.menu.map((menuSection, menuIdx) => (
+                                    <div key={menuIdx} className="bg-cream-100 rounded-lg p-2">
+                                      <h5 className="font-medium text-charcoal-800 text-xs mb-1 flex items-center gap-1">
+                                        <span className="w-1 h-1 bg-gold-500 rounded-full"></span>
+                                        {menuSection.nombre}
+                                      </h5>
+                                      <ul className="grid grid-cols-2 gap-x-2 gap-y-0.5">
+                                        {menuSection.items.map((item, itemIdx) => (
+                                          <li
+                                            key={itemIdx}
+                                            className="text-charcoal-600 text-xs flex items-start gap-1"
+                                          >
+                                            <span className="text-tan-400 mt-0.5">•</span>
+                                            {item}
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Helper function to group variants by meal type
+function groupVariantsByMealType(variantes: Variante[]): MealGroup[] {
+  const desayunoIcon = (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+  );
+  const comidaIcon = (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  );
+  const cenaIcon = (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+    </svg>
+  );
+
+  const groups: MealGroup[] = [];
+
+  const desayunos = variantes.filter(v => v.nombre.toLowerCase().includes("desayuno"));
+  const comidas = variantes.filter(v => v.nombre.toLowerCase().includes("comida"));
+  const cenas = variantes.filter(v => v.nombre.toLowerCase().includes("cena"));
+
+  if (desayunos.length > 0) {
+    groups.push({ nombre: "Desayuno", icon: desayunoIcon, variantes: desayunos });
+  }
+  if (comidas.length > 0) {
+    groups.push({ nombre: "Comida", icon: comidaIcon, variantes: comidas });
+  }
+  if (cenas.length > 0) {
+    groups.push({ nombre: "Cena", icon: cenaIcon, variantes: cenas });
+  }
+
+  return groups;
+}
+
 export function CateringSocial() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selectedProduct, setSelectedProduct] = useState<Producto | null>(null);
   const [expandedVariante, setExpandedVariante] = useState<number | null>(null);
+  const [expandedGroup, setExpandedGroup] = useState<string | null>(null);
 
   const handleCloseModal = () => {
     setSelectedProduct(null);
     setExpandedVariante(null);
+    setExpandedGroup(null);
   };
 
   const handleToggleVariante = (index: number) => {
     setExpandedVariante(expandedVariante === index ? null : index);
   };
 
+  const handleToggleGroup = (groupName: string) => {
+    setExpandedGroup(expandedGroup === groupName ? null : groupName);
+    setExpandedVariante(null); // Reset expanded variant when changing groups
+  };
+
+  // Check if product should use grouped display
+  const isGroupedProduct = (product: Producto) => {
+    return product.title === "Buffet" || product.title === "Emplatado";
+  };
+
   return (
-    <section id="social" className="py-24 lg:py-32 bg-cream-100" ref={ref}>
+    <section className="py-24 lg:py-32 bg-cream-100" ref={ref}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -955,19 +1242,32 @@ export function CateringSocial() {
 
             <p className="text-charcoal-600 mb-2">{selectedProduct.description}</p>
             <p className="text-sm text-tan-600 mb-6">
-              Haz clic en cada opción para ver el menú completo
+              {isGroupedProduct(selectedProduct)
+                ? "Selecciona el tipo de servicio y la opción que mejor se adapte a tu evento"
+                : "Haz clic en cada opción para ver el menú completo"
+              }
             </p>
 
-            <div className="space-y-3">
-              {selectedProduct.variantes.map((variante, idx) => (
-                <VarianteCard
-                  key={idx}
-                  variante={variante}
-                  isExpanded={expandedVariante === idx}
-                  onToggle={() => handleToggleVariante(idx)}
-                />
-              ))}
-            </div>
+            {isGroupedProduct(selectedProduct) ? (
+              <GroupedMealCard
+                groups={groupVariantsByMealType(selectedProduct.variantes)}
+                expandedGroup={expandedGroup}
+                expandedVariante={expandedVariante}
+                onToggleGroup={handleToggleGroup}
+                onToggleVariante={handleToggleVariante}
+              />
+            ) : (
+              <div className="space-y-3">
+                {selectedProduct.variantes.map((variante, idx) => (
+                  <VarianteCard
+                    key={idx}
+                    variante={variante}
+                    isExpanded={expandedVariante === idx}
+                    onToggle={() => handleToggleVariante(idx)}
+                  />
+                ))}
+              </div>
+            )}
 
             <div className="mt-8 pt-6 border-t border-cream-200">
               <a

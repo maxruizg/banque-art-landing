@@ -71,7 +71,7 @@ export function Hero() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <motion.a
-                href="#corporativo"
+                href="/corporativo"
                 className="group bg-gold-500 text-charcoal-900 px-8 py-4 rounded-full text-sm tracking-wide uppercase hover:bg-gold-400 transition-all inline-flex items-center justify-center gap-3"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -85,7 +85,7 @@ export function Hero() {
                 </svg>
               </motion.a>
               <motion.a
-                href="#social"
+                href="/social"
                 className="group border-2 border-cream-300 text-cream-100 px-8 py-4 rounded-full text-sm tracking-wide uppercase hover:bg-cream-50/10 transition-all inline-flex items-center justify-center gap-3"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

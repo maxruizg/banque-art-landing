@@ -4,8 +4,7 @@ import {
   Hero,
   About,
   CorporateManifesto,
-  CateringCorporativo,
-  CateringSocial,
+  ServicesTeaser,
   Showroom,
   Contact,
   Footer,
@@ -34,12 +33,11 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <>
-      <Navigation />
+      <Navigation variant="dark" />
       <main>
         <Hero />
         <CorporateManifesto />
-        <CateringCorporativo />
-        <CateringSocial />
+        <ServicesTeaser />
         <About />
         <Showroom />
         <Contact />
