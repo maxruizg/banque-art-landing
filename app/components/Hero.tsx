@@ -37,10 +37,13 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-cream-50 leading-tight mb-8"
+              style={{
+                textShadow: "0 2px 8px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(0, 0, 0, 0.4)"
+              }}
             >
               La experiencia gastronómica
               <br />
-              como <span className="text-gold-400">herramienta</span>
+              como <span className="text-gold-400 drop-shadow-lg">herramienta</span>
               <br />
               de comunicación
             </motion.h1>
@@ -50,7 +53,10 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-cream-200 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed"
+              className="text-cream-100 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed"
+              style={{
+                textShadow: "0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3)"
+              }}
             >
               En BanqueArt no solo damos servicio de catering. Nos involucramos en la
               intención del evento, entendiendo que cada formato gastronómico es una
