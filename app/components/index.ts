@@ -9,3 +9,4 @@ export { Modal } from "./Modal";
 export { Showroom } from "./Showroom";
 export { Contact } from "./Contact";
 export { Footer } from "./Footer";
+export { PageHero } from "./PageHero";

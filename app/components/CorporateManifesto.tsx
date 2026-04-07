@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router";
 
 export function CorporateManifesto() {
   const ref = useRef(null);
@@ -14,6 +15,7 @@ export function CorporateManifesto() {
           src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop"
           alt="Corporate event"
           className="w-full h-full object-cover opacity-20"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal-800/50 via-charcoal-800/80 to-charcoal-800" />
       </div>
@@ -126,15 +128,15 @@ export function CorporateManifesto() {
             transition={{ duration: 0.6, delay: 1 }}
             className="text-center mt-12"
           >
-            <a
-              href="/corporativo"
+            <Link
+              to="/corporativo"
               className="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors text-sm uppercase tracking-wider"
             >
               Descubre nuestros servicios corporativos
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

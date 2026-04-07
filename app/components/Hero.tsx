@@ -1,4 +1,8 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router";
+import { stats } from "../data/stats";
+
+const MotionLink = motion.create(Link);
 
 export function Hero() {
   return (
@@ -14,7 +18,8 @@ export function Hero() {
             backgroundImage: "url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop')"
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-900/90 via-charcoal-900/70 to-charcoal-900/50" />
+        <div className="absolute inset-0 bg-charcoal-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-900/80 via-charcoal-900/50 to-transparent" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-32">
@@ -37,9 +42,6 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="font-serif text-4xl md:text-5xl lg:text-6xl font-medium text-cream-50 leading-tight mb-8"
-              style={{
-                textShadow: "0 2px 8px rgba(0, 0, 0, 0.6), 0 6px 20px rgba(0, 0, 0, 0.4)"
-              }}
             >
               La experiencia gastronómica
               <br />
@@ -54,9 +56,6 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-cream-100 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed"
-              style={{
-                textShadow: "0 2px 4px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3)"
-              }}
             >
               En BanqueArt no solo damos servicio de catering. Nos involucramos en la
               intención del evento, entendiendo que cada formato gastronómico es una
@@ -70,8 +69,8 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <motion.a
-                href="/corporativo"
+              <MotionLink
+                to="/corporativo"
                 className="group bg-gold-500 text-charcoal-900 px-8 py-4 rounded-full text-sm tracking-wide uppercase hover:bg-gold-400 transition-all inline-flex items-center justify-center gap-3"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -83,9 +82,9 @@ export function Hero() {
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </motion.a>
-              <motion.a
-                href="/social"
+              </MotionLink>
+              <MotionLink
+                to="/social"
                 className="group border-2 border-cream-300 text-cream-100 px-8 py-4 rounded-full text-sm tracking-wide uppercase hover:bg-cream-50/10 transition-all inline-flex items-center justify-center gap-3"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -97,7 +96,7 @@ export function Hero() {
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </motion.a>
+              </MotionLink>
             </motion.div>
           </div>
 
@@ -109,20 +108,15 @@ export function Hero() {
             className="hidden lg:flex lg:col-span-4 justify-end"
           >
             <div className="bg-cream-50/10 backdrop-blur-md border border-cream-50/20 rounded-2xl p-6 space-y-6">
-              <div className="text-center">
-                <p className="font-serif text-3xl font-medium text-gold-400">500+</p>
-                <p className="text-cream-200 text-xs uppercase tracking-wider">Eventos</p>
-              </div>
-              <div className="w-12 h-px bg-cream-50/20 mx-auto" />
-              <div className="text-center">
-                <p className="font-serif text-3xl font-medium text-gold-400">15+</p>
-                <p className="text-cream-200 text-xs uppercase tracking-wider">Años</p>
-              </div>
-              <div className="w-12 h-px bg-cream-50/20 mx-auto" />
-              <div className="text-center">
-                <p className="font-serif text-3xl font-medium text-gold-400">98%</p>
-                <p className="text-cream-200 text-xs uppercase tracking-wider">Satisfacción</p>
-              </div>
+              {stats.filter((_, i) => i !== 1).map((stat, index) => (
+                <div key={stat.label}>
+                  {index > 0 && <div className="w-12 h-px bg-cream-50/20 mx-auto mb-6" />}
+                  <div className="text-center">
+                    <p className="font-serif text-3xl font-medium text-gold-400">{stat.number}</p>
+                    <p className="text-cream-200 text-xs uppercase tracking-wider">{stat.label}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>

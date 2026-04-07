@@ -1,90 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
-
-type Category = "all" | "plates" | "decorations" | "table-settings";
-
-interface ShowroomItem {
-  id: number;
-  category: Exclude<Category, "all">;
-  title: string;
-  description: string;
-  space: string;
-  image: string;
-}
-
-const categories: { id: Category; label: string }[] = [
-  { id: "all", label: "Todos" },
-  { id: "plates", label: "Platillos Exclusivos" },
-  { id: "decorations", label: "Decoraciones" },
-  { id: "table-settings", label: "Montaje de Mesas" },
-];
-
-const showroomItems: ShowroomItem[] = [
-  {
-    id: 1,
-    category: "plates",
-    title: "Entrada Artesanal",
-    description: "Ingredientes de temporada artísticamente presentados",
-    space: "Comedor íntimo",
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    category: "decorations",
-    title: "Centro de Mesa Floral",
-    description: "Flores frescas en tonos tierra cálidos",
-    space: "Salón de eventos",
-    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 3,
-    category: "table-settings",
-    title: "Elegancia Clásica",
-    description: "Porcelana fina con acentos dorados",
-    space: "Salón de recepciones",
-    image: "https://images.unsplash.com/photo-1478146896981-b80fe463b330?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 4,
-    category: "plates",
-    title: "Plato Principal Gourmet",
-    description: "Cortes premium con vegetales del huerto",
-    space: "Loft moderno",
-    image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 5,
-    category: "decorations",
-    title: "Ambiente con Velas",
-    description: "Iluminación cálida con latón vintage",
-    space: "Granero rústico",
-    image: "https://images.unsplash.com/photo-1510076857177-7470076d4098?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 6,
-    category: "table-settings",
-    title: "Minimalismo Moderno",
-    description: "Líneas limpias con texturas naturales",
-    space: "Galería contemporánea",
-    image: "https://images.unsplash.com/photo-1445510861639-5651173bc5d5?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 7,
-    category: "plates",
-    title: "Obra Maestra de Postre",
-    description: "Arte en chocolate con frutos rojos frescos",
-    space: "Terraza elegante",
-    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?q=80&w=800&auto=format&fit=crop",
-  },
-  {
-    id: 8,
-    category: "decorations",
-    title: "Cosecha de Temporada",
-    description: "Decoración de mesa inspirada en otoño",
-    space: "Hacienda campestre",
-    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=800&auto=format&fit=crop",
-  },
-];
+import { categories, showroomItems } from "../data/showroom-items";
+import type { Category, ShowroomItem } from "../data/showroom-items";
 
 export function Showroom() {
   const [activeCategory, setActiveCategory] = useState<Category>("all");
@@ -168,7 +85,7 @@ export function Showroom() {
         <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item, index) => (
-              <motion.div
+              <motion.button
                 key={item.id}
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -176,7 +93,8 @@ export function Showroom() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 onClick={() => setSelectedItem(item)}
-                className="group cursor-pointer"
+                className="group cursor-pointer text-left"
+                aria-label={`Ver detalle de ${item.title}`}
               >
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden mb-4">
                   {/* Gallery Image */}
@@ -184,6 +102,7 @@ export function Showroom() {
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
                   />
 
                   {/* Hover overlay */}
@@ -200,7 +119,7 @@ export function Showroom() {
                     </div>
                   </motion.div>
                 </div>
-              </motion.div>
+              </motion.button>
             ))}
           </AnimatePresence>
         </motion.div>
@@ -213,17 +132,19 @@ export function Showroom() {
           className="text-center mt-12"
         >
           <p className="text-charcoal-600 mb-4">
-            ¿Quieres ver cómo podemos transformar tu espacio?
+            ¿Quieres saber qué banquete es ideal para tu evento?
           </p>
           <motion.a
-            href="#contacto"
+            href="https://wa.me/525567070128?text=Hola%2C%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20sus%20servicios%20de%20banquete"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-gold-500 text-cream-50 px-8 py-4 rounded-full text-sm tracking-wide uppercase hover:bg-gold-600 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Agenda una Consulta
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            Escríbenos por WhatsApp
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
             </svg>
           </motion.a>
         </motion.div>
@@ -233,6 +154,8 @@ export function Showroom() {
       <AnimatePresence>
         {selectedItem && (
           <motion.div
+            role="dialog"
+            aria-modal="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -265,6 +188,7 @@ export function Showroom() {
                 <button
                   onClick={() => setSelectedItem(null)}
                   className="absolute top-4 right-4 w-10 h-10 rounded-full bg-tan-100 flex items-center justify-center hover:bg-tan-200 transition-colors"
+                  aria-label="Cerrar"
                 >
                   <svg className="w-5 h-5 text-charcoal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

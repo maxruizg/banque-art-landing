@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 const footerLinks = {
   servicios: [
@@ -28,17 +29,22 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <motion.a
-              href="#inicio"
+            <Link
+              to="/"
               className="font-serif text-2xl font-semibold text-cream-50 tracking-wide inline-block mb-4"
-              whileHover={{ scale: 1.02 }}
             >
               Banque<span className="text-gold-400">-</span>Art
-            </motion.a>
-            <p className="text-cream-300 leading-relaxed mb-6 max-w-sm">
+            </Link>
+            <p className="text-cream-300 leading-relaxed mb-4 max-w-sm">
               Creando experiencias culinarias extraordinarias que transforman
               tus eventos en recuerdos inolvidables. Donde el arte se encuentra
               con la elegancia.
+            </p>
+            <p className="text-cream-400 text-sm mb-2">
+              Joyas del Pedregal, 04660, Coyoacán, CDMX
+            </p>
+            <p className="text-cream-400 text-sm mb-6">
+              Tel: <a href="tel:+525567070128" className="hover:text-cream-200 transition-colors">+52 55 6707 0128</a>
             </p>
             <div className="flex gap-4">
               {["Instagram", "Facebook", "Pinterest"].map((social) => (

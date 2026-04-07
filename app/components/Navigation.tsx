@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -9,6 +10,10 @@ const navLinks = [
   { name: "Nosotros", href: "/#nosotros" },
   { name: "Galería", href: "/#galeria" },
 ];
+
+function isHashLink(href: string) {
+  return href.startsWith("#") || href.includes("/#");
+}
 
 interface NavigationProps {
   variant?: "light" | "dark";
@@ -21,12 +26,21 @@ export function Navigation({ variant = "light" }: NavigationProps) {
   const isDark = variant === "dark" && !isScrolled;
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const MotionLink = motion.create(Link);
 
   return (
     <motion.nav
@@ -42,8 +56,8 @@ export function Navigation({ variant = "light" }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.a
-            href="/"
+          <MotionLink
+            to="/"
             className={`font-serif text-2xl font-semibold tracking-wide transition-colors ${
               isDark ? "text-cream-50" : "text-charcoal-800"
             }`}
@@ -51,25 +65,41 @@ export function Navigation({ variant = "light" }: NavigationProps) {
             whileTap={{ scale: 0.98 }}
           >
             Banque<span className="text-gold-500">-</span>Art
-          </motion.a>
+          </MotionLink>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link, index) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                className={`hover:text-gold-500 transition-colors text-sm tracking-wide uppercase ${
-                  isDark ? "text-cream-200" : "text-charcoal-700"
-                }`}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ y: -2 }}
-              >
-                {link.name}
-              </motion.a>
-            ))}
+            {navLinks.map((link, index) =>
+              isHashLink(link.href) ? (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  className={`hover:text-gold-500 transition-colors text-sm tracking-wide uppercase ${
+                    isDark ? "text-cream-200" : "text-charcoal-700"
+                  }`}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  whileHover={{ y: -2 }}
+                >
+                  {link.name}
+                </motion.a>
+              ) : (
+                <MotionLink
+                  key={link.name}
+                  to={link.href}
+                  className={`hover:text-gold-500 transition-colors text-sm tracking-wide uppercase ${
+                    isDark ? "text-cream-200" : "text-charcoal-700"
+                  }`}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  whileHover={{ y: -2 }}
+                >
+                  {link.name}
+                </MotionLink>
+              )
+            )}
             <motion.a
               href="/#contacto"
               className={`px-6 py-2.5 rounded-full text-sm tracking-wide uppercase transition-colors ${
@@ -124,19 +154,33 @@ export function Navigation({ variant = "light" }: NavigationProps) {
             className="md:hidden bg-cream-50/98 backdrop-blur-sm border-t border-cream-200"
           >
             <div className="px-6 py-4 space-y-4">
-              {navLinks.map((link, index) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  className="block text-charcoal-700 hover:text-gold-600 transition-colors text-sm tracking-wide uppercase py-2"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </motion.a>
-              ))}
+              {navLinks.map((link, index) =>
+                isHashLink(link.href) ? (
+                  <motion.a
+                    key={link.name}
+                    href={link.href}
+                    className="block text-charcoal-700 hover:text-gold-600 transition-colors text-sm tracking-wide uppercase py-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </motion.a>
+                ) : (
+                  <MotionLink
+                    key={link.name}
+                    to={link.href}
+                    className="block text-charcoal-700 hover:text-gold-600 transition-colors text-sm tracking-wide uppercase py-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </MotionLink>
+                )
+              )}
               <motion.a
                 href="#contacto"
                 className="block bg-tan-600 text-cream-50 px-6 py-3 rounded-full text-sm tracking-wide uppercase text-center hover:bg-tan-700 transition-colors"

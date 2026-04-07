@@ -1,13 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-
-const stats = [
-  { number: "500+", label: "Eventos Realizados" },
-  { number: "50+", label: "Miembros del Equipo" },
-  { number: "98%", label: "Clientes Satisfechos" },
-  { number: "15+", label: "Años de Experiencia" },
-];
+import { stats } from "../data/stats";
 
 export function About() {
   const ref = useRef(null);
@@ -22,7 +16,7 @@ export function About() {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative overflow-hidden"
           >
             <div className="grid grid-cols-2 gap-4">
               <motion.div
@@ -35,6 +29,7 @@ export function About() {
                   src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=800&auto=format&fit=crop"
                   alt="Chef preparando platillos"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </motion.div>
 
@@ -48,6 +43,7 @@ export function About() {
                   src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=800&auto=format&fit=crop"
                   alt="Montaje de evento elegante"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </motion.div>
             </div>
@@ -59,8 +55,8 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="absolute -bottom-6 right-8 bg-gold-500 text-cream-50 p-6 rounded-xl shadow-lg"
             >
-              <p className="font-serif text-3xl font-medium">Desde</p>
-              <p className="text-2xl font-light">2009</p>
+              <p className="text-lg font-light">Desde</p>
+              <p className="font-serif text-3xl font-medium">2009</p>
             </motion.div>
           </motion.div>
 

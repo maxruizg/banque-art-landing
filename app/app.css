@@ -26,14 +26,24 @@
   --color-gold-500: #B8934A;
   --color-gold-600: #9A7A3D;
 
+  /* Rose / terracotta accent (Social line) */
+  --color-rose-400: #C4856A;
+  --color-rose-500: #B57259;
+  --color-rose-600: #A35F48;
+
   /* Neutral dark for text */
   --color-charcoal-800: #2D2A26;
   --color-charcoal-700: #3D3935;
   --color-charcoal-600: #524D47;
+
+  /* Tracking */
+  --tracking-eyebrow: 0.3em;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 html,
